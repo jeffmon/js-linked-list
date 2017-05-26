@@ -6,6 +6,7 @@
 function linkedListGenerator(){
   var head = null;
   var tail = null;
+  var totalNodes = 0;
 
   function getHead(){
     return head;
@@ -23,6 +24,7 @@ function linkedListGenerator(){
       getTail().next = node;
     }
     tail = node;
+    totalNodes++;
     return node;
   }
 
@@ -35,12 +37,25 @@ function linkedListGenerator(){
   }
 
   function get(num){
-
+    var currentNode = head;
+    var nextNode = null;
+    var i = 0;
+    if(num >= totalNodes){
+      return false;
+    } else {
+      while(i < num){
+      currentNode = currentNode.next;
+      i++;
+    }
+    return currentNode;
+    }
   }
+
 
   function insert(val, num){
 
   }
+
 
 
   return{
