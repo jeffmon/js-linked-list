@@ -53,8 +53,6 @@ function linkedListGenerator(){
     else {
       curNodeParent.next = curNode.next;
       totalNodes--;
-      console.log("head", head);
-      console.log("tail", tail);
     }
   }
 
@@ -74,7 +72,26 @@ function linkedListGenerator(){
 
 
   function insert(val, num){
+    var curNodeParent = get(num - 2);
+    var curNode = get(num - 1);
+    var newNode = {
+      value: val,
+      next: curNode.next
+    };
+    if(num === 0){
+      newNode.next = curNode;
+      head = newNode;
+      totalNodes++;
+    } else if (num > getTotal() || num < 0){
+      return false;
+    } else {
+      curNode.next = newNode;
+      totalNodes++;
+    }
+  }
 
+  function getTotal(){
+    return totalNodes;
   }
 
 
@@ -84,14 +101,24 @@ function linkedListGenerator(){
     getTail,
     remove,
     get,
-    insert
+    insert,
+    getTotal
   };
 }
 
 var myLL = linkedListGenerator();
+console.log(myLL.getTotal());
+
 myLL.add("Jeff");
+console.log(myLL.getTotal());
 myLL.add("max");
+console.log(myLL.getTotal());
 myLL.add("ryu");
+console.log(myLL.getTotal());
 myLL.add("ken");
-console.log(myLL.remove(3));
-console.log(JSON.stringify(myLL.getHead()));
+console.log(myLL.getTotal());
+myLL.insert("bison", 3);
+console.log(myLL.getTotal());
+
+//console.log(JSON.stringify(myLL.getHead()));
+//console.log(myLL.getTotal());
