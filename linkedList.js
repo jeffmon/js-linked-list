@@ -81,7 +81,7 @@ function linkedListGenerator(){
       newNode.next = curNode;
       head = newNode;
       totalNodes++;
-    } else if (num > getTotal() || num < 0){
+    } else if (num > getLength() || num < 0){
       return false;
     } else {
       curNode.next = newNode;
@@ -89,7 +89,7 @@ function linkedListGenerator(){
     }
   }
 
-  function getTotal(){
+  function getLength(){
     return totalNodes;
   }
 
@@ -101,23 +101,6 @@ function linkedListGenerator(){
     remove,
     get,
     insert,
-    getTotal
+    getLength
   };
 }
-
-var myLL = linkedListGenerator();
-console.log(myLL.getTotal());
-
-myLL.add("Jeff");
-console.log(myLL.getTotal());
-myLL.add("max");
-console.log(myLL.getTotal());
-myLL.add("ryu");
-console.log(myLL.getTotal());
-myLL.add("ken");
-console.log(myLL.getTotal());
-myLL.insert("bison", 3);
-console.log(myLL.getTotal());
-
-//console.log(JSON.stringify(myLL.getHead()));
-//console.log(myLL.getTotal());
