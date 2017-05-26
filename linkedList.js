@@ -72,7 +72,6 @@ function linkedListGenerator(){
 
 
   function insert(val, num){
-    var curNodeParent = get(num - 2);
     var curNode = get(num - 1);
     var newNode = {
       value: val,
